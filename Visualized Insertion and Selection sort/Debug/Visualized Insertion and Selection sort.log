@@ -1,0 +1,42 @@
+﻿  Visualized Insertion and Selection sort.cpp
+C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort.cpp(26,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort.cpp(28,24): warning C4244: 'initializing': conversion from '_Ty' to 'int', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort.cpp(29,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort.cpp(33,39): warning C4244: '=': conversion from '_Ty' to 'int', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort.cpp(39,36): warning C4244: 'initializing': conversion from '_Ty' to 'int', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort.cpp(45,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort.cpp(57,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort.cpp(58,47): warning C4244: 'argument': conversion from '_Ty' to 'T', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort.cpp(85,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort.cpp(100,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort.cpp(108,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort\Visualized Insertion and Selection sort.cpp(109,47): warning C4244: 'argument': conversion from '_Ty' to 'T', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+          and
+          [
+              T=float
+          ]
+  Visualized Insertion and Selection sort.vcxproj -> C:\Users\caleb\source\repos\Visualized Insertion and Selection sort\Debug\Visualized Insertion and Selection sort.exe
