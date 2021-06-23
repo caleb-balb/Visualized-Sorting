@@ -13,7 +13,7 @@ std::vector <double> arr;
 
 void SelectionSort()
 {
-    RenderWindow Window(VideoMode(600, 800), "Selection Sort"); // you can change the size of the window if your array is really large.
+    RenderWindow Window(VideoMode(600, 800), "Visualized Sorting"); // you can change the size of the window if your array is really large.
     RectangleShape Rect;
     Event appEvent;
     double RectPosX = 0;
@@ -69,10 +69,82 @@ void SelectionSort()
 
     }
 }
-
+void CocktailSort()
+{
+    RenderWindow window(VideoMode(600, 800), "Visualized Sorting");
+    Event appEvent;
+    RectangleShape Rect;
+    double RectPosX = 0;
+    double savedindex = 0;
+    bool arrchange = false;
+    while (window.isOpen()) {
+        while (window.pollEvent(appEvent)) {
+            if (appEvent.type == Event::Closed)
+                window.close();
+        }
+        while (!arrchange)
+        {
+            arrchange = true;
+            for (int i = 0; i < arr.size() - 2; i++)
+            {
+                if (arr[i] > arr[i + 1])
+                {
+                    double savedvar = arr[i], savedvar2 = arr[i + 1];
+                    arr[i] = savedvar2;
+                    arr[i + 1] = savedvar;
+                    savedindex = i;
+                    arrchange = false;
+                }
+                window.clear(sf::Color::Black);
+                RectPosX = 0;
+                for (int z = 0; z < arr.size() - 1; z++)
+                {
+                    Rect.setFillColor(Color(255, 0, 0));
+                    if (z == savedindex || z == savedindex + 1) Rect.setFillColor(Color(0, 0, 255));
+                    RectPosX += 2;
+                    Rect.setPosition(RectPosX, 800);
+                    Rect.setSize(Vector2f(1, arr[z]));
+                    Rect.setRotation(180);
+                    window.draw(Rect);
+                   
+                }
+                window.display();
+            }
+            while (window.pollEvent(appEvent)) {
+                if (appEvent.type == Event::Closed)
+                    window.close();
+            }
+            for (int x = arr.size() - 1; x > 0; x--)
+            {
+                if (arr[x] < arr[x - 1])
+                {
+                    double savedvar = arr[x], savedvar2 = arr[x - 1];
+                    arr[x] = savedvar2;
+                    arr[x - 1] = savedvar;
+                    savedindex = x;
+                    arrchange = false;
+                }
+                window.clear(sf::Color::Black);
+                RectPosX = 0;
+                for (int z = 0; z < arr.size() - 1; z++)
+                {
+                    Rect.setFillColor(Color(255, 0, 0));
+                    if (z == savedindex || z == savedindex - 1) Rect.setFillColor(Color(0, 0, 255));
+                    RectPosX += 2;
+                    Rect.setPosition(RectPosX, 800);
+                    Rect.setSize(Vector2f(1, arr[z]));
+                    Rect.setRotation(180);
+                    window.draw(Rect);
+                }
+                window.display();
+            }
+            
+        }
+    }
+}
 void InsertionSort()
 {
-    RenderWindow window(VideoMode(600, 800), "Selection/Insertion Sort");
+    RenderWindow window(VideoMode(600, 800), "Visualized Sorting");
     Event appEvent;
     RectangleShape Rect;
     double RectPosX = 0;
@@ -129,6 +201,6 @@ int main()
         ssoutput >> intergeroutput;
         arr.push_back(intergeroutput);
     }
-    InsertionSort();
+    CocktailSort();
 }
 
