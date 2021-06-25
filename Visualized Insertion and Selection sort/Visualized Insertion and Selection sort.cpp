@@ -10,10 +10,68 @@
 using namespace std;
 using namespace sf;
 std::vector <double> arr;
+void BubbleSort()
+{
+    RenderWindow Window(VideoMode(600, 900), "Bubble Sort"); // you can change the size of the window if your array is really large.
+    RectangleShape Rect;
+    Event appEvent;
+    double PosX = 0;
+    double savedindex = NULL;
+    while (Window.isOpen()) {
+        Rect.setFillColor(Color(255, 0, 0));
+        while (Window.pollEvent(appEvent)) {
+            if (appEvent.type == Event::Closed)
+                Window.close();
+        }
+        PosX = 0;
+        int slot = 0;
+        double totalmoves = 0;
+        bool arraychange = true;
+         for (int i = 0; arraychange; i++)
+         {
+             arraychange = false;
+             for (int y = 0; y < arr.size() - 2; y++)
+             {
+                 if (arr[y] > arr[y + 1])
+                 {
+                     double varone = arr[y];
+                     double vartwo = arr[y + 1];
+                     arr[y + 1] = varone;
+                     arr[y] = vartwo;
+                     savedindex = y;
+                     totalmoves++;
+                     arraychange = true;
+                 }
 
+                 // code for drawing every complition of the array, change all x's to y's
+
+                    // *NOTE*: TO PROPERLY RENDER THE OTHER WAY (USING THE COMMENTED OUT CODE) REMOVE THE FOR LOOP ABOVE AND REMOVE THE WINDOW.DISPLAY() and window.clear()
+                    // BELOW THIS COMMENT. THAN UNCOMMENT THE WINDOW.DISPLAY() AT THE END OF THE WHILE LOOP.
+
+             }
+             Window.clear(sf::Color::Black);
+             PosX = 0;
+             for (int z = 0; z < arr.size() - 1; z++)
+             {
+                 Rect.setFillColor(Color(255, 0, 0));
+                 PosX += 2;
+                 if (z == savedindex + 1)
+                 {
+                     Rect.setFillColor(Color(0, 0, 255));
+                 }
+                 Rect.setPosition(PosX, 900);
+                 Rect.setSize(Vector2f(1, arr[z]));
+                 Rect.setRotation(180);
+                 Window.draw(Rect);
+             }
+             Window.display();
+             Sleep(50);
+         }
+    }
+}
 void SelectionSort()
 {
-    RenderWindow Window(VideoMode(600, 800), "Visualized Sorting"); // you can change the size of the window if your array is really large.
+    RenderWindow Window(VideoMode(600, 900), "Visualized Sorting"); // you can change the size of the window if your array is really large.
     RectangleShape Rect;
     Event appEvent;
     double RectPosX = 0;
@@ -54,7 +112,7 @@ void SelectionSort()
                 {
                     Rect.setFillColor(Color(0, 0, 255));
                 }
-                Rect.setPosition(RectPosX, 800);
+                Rect.setPosition(RectPosX, 900);
                 Rect.setSize(Vector2f(1, arr[z]));
                 Rect.setRotation(180);
                 Window.draw(Rect);
@@ -71,7 +129,7 @@ void SelectionSort()
 }
 void CocktailSort()
 {
-    RenderWindow window(VideoMode(600, 800), "Visualized Sorting");
+    RenderWindow window(VideoMode(600, 900), "Visualized Sorting");
     Event appEvent;
     RectangleShape Rect;
     double RectPosX = 0;
@@ -102,7 +160,7 @@ void CocktailSort()
                     Rect.setFillColor(Color(255, 0, 0));
                     if (z == savedindex || z == savedindex + 1) Rect.setFillColor(Color(0, 0, 255));
                     RectPosX += 2;
-                    Rect.setPosition(RectPosX, 800);
+                    Rect.setPosition(RectPosX, 900);
                     Rect.setSize(Vector2f(1, arr[z]));
                     Rect.setRotation(180);
                     window.draw(Rect);
@@ -131,7 +189,7 @@ void CocktailSort()
                     Rect.setFillColor(Color(255, 0, 0));
                     if (z == savedindex || z == savedindex - 1) Rect.setFillColor(Color(0, 0, 255));
                     RectPosX += 2;
-                    Rect.setPosition(RectPosX, 800);
+                    Rect.setPosition(RectPosX, 900);
                     Rect.setSize(Vector2f(1, arr[z]));
                     Rect.setRotation(180);
                     window.draw(Rect);
@@ -144,7 +202,7 @@ void CocktailSort()
 }
 void InsertionSort()
 {
-    RenderWindow window(VideoMode(600, 800), "Visualized Sorting");
+    RenderWindow window(VideoMode(600, 900), "Visualized Sorting");
     Event appEvent;
     RectangleShape Rect;
     double RectPosX = 0;
@@ -177,13 +235,17 @@ void InsertionSort()
                 {
                     Rect.setFillColor(Color(0, 0, 255));
                 }
-                Rect.setPosition(RectPosX, 800);
+                Rect.setPosition(RectPosX, 900);
                 Rect.setSize(Vector2f(1, arr[z]));
                 Rect.setRotation(180);
                 window.draw(Rect);
             }
+            while (window.pollEvent(appEvent)) {
+                if (appEvent.type == Event::Closed)
+                    window.close();
+            }
             window.display();
-            Sleep(50);
+           Sleep(50);
         }
     }
 }
@@ -201,6 +263,6 @@ int main()
         ssoutput >> intergeroutput;
         arr.push_back(intergeroutput);
     }
-    CocktailSort();
+    BubbleSort();
 }
 
