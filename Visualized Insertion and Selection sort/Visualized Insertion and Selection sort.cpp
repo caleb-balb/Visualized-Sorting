@@ -10,6 +10,62 @@
 using namespace std;
 using namespace sf;
 std::vector <double> arr;
+
+void ShellSort()
+{
+    RenderWindow Window(VideoMode(1100, 900), "Bubble Sort"); // you can change the size of the window if your array is really large.
+    RectangleShape Rect;
+    Event appEvent;
+    double PosX = 0;
+    double savedindex = NULL;
+    while (Window.isOpen()) {
+        Rect.setFillColor(Color(255, 0, 0));
+        while (Window.pollEvent(appEvent)) {
+            if (appEvent.type == Event::Closed)
+                Window.close();
+        }
+        int n = arr.size();
+        for (int gap = n / 2; gap > 0; gap /= 2)
+        {
+            for (int i = gap; i < arr.size(); i++)
+            {
+                for (int x = i - gap; x >= 0; x -= gap)
+                {
+                    if (arr[x + gap] >= arr[x])
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        double savedvar = arr[x];
+                        double savedvar2 = arr[x + gap];
+                        arr[x] = savedvar2;
+                        arr[x + gap] = savedvar;
+                        std::cout << "array at: " << savedvar << " switches with: " << savedvar2 << std::endl;
+                    }
+                    Window.clear(sf::Color::Black);
+                     double PosX = 0;
+                    for (int z = 0; z < arr.size() - 1; z++)
+                    {
+                        Rect.setFillColor(Color(255, 0, 0));
+                        PosX += 2;
+                        if (z == i || z == i + 1)
+                        {
+                            Rect.setFillColor(Color(0, 0, 255));
+                        }
+                        Rect.setPosition(PosX, 900);
+                        Rect.setSize(Vector2f(1, arr[z]));
+                        Rect.setRotation(180);
+                        Window.draw(Rect);
+                    }
+                    Window.display();
+                    Sleep(25);
+                }
+            }
+
+        }
+    }
+}
 void BubbleSort()
 {
     RenderWindow Window(VideoMode(600, 900), "Bubble Sort"); // you can change the size of the window if your array is really large.
@@ -263,6 +319,6 @@ int main()
         ssoutput >> intergeroutput;
         arr.push_back(intergeroutput);
     }
-    BubbleSort();
+  ShellSort();
 }
 
